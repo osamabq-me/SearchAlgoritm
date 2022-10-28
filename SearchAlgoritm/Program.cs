@@ -12,6 +12,14 @@ namespace SearchAlgoritm
         int[] arr = new int[20];
         //Number of elements in the array
         int n;
+        // get the number of elements to store in the array
+        int i;
+
+
+        public void input()
+        {
+
+        }
 
 
 

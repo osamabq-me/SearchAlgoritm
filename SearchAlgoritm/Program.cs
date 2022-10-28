@@ -13,10 +13,7 @@ namespace SearchAlgoritm
         //Number of elements in the array
         int n;
 
-        public void linersearch()
-        {
 
-        }
 
 
 

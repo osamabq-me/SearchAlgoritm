@@ -15,7 +15,6 @@ namespace SearchAlgoritm
         // get the number of elements to store in the array
         int i;
 
-
         public void input()
         {
             while (true)
@@ -44,7 +43,51 @@ namespace SearchAlgoritm
 
             }
         }
+        public void BinarySearch()
+        {
+            char ch;
+            do
+            {
+                //accept the number to be searched for 
+                Console.Write("\n Enter element you want to search :");
+                int item = Convert.ToInt32(Console.ReadLine());
 
+                //aplly the Binary search
+                int lowerbound = 0;
+                int upperbound = n - 1;
+
+                //obtain the index of the elements in the array
+                int mid = (upperbound + lowerbound) / 2;
+                int ctr = 1;
+
+                //loop to search for elements in the array
+                while ((item != arr[mid]) && (lowerbound <= upperbound))
+                {
+                    if (item > arr[mid])
+                        lowerbound = mid + 1;
+                    else
+                        upperbound = mid - 1;
+
+                    mid = (upperbound + lowerbound) / 2;
+                    ctr++;
+                }
+                if (item == arr[mid])
+                {
+                    Console.WriteLine("\n" + item.ToString() + "found at position " + (mid + 1).ToString());
+                }
+                else
+                    Console.WriteLine("\n" + item.ToString() + "Not found in the array\n");
+                Console.WriteLine("\n Number of comparisions  : " + ctr);
+
+                Console.Write("\nContinue search (y|n) ");
+                ch = char.Parse(Console.ReadLine());
+
+
+            } while ((ch == 'Y') || (ch == 'y'));
+            
+        }
+
+        
 
 
 

@@ -17,9 +17,10 @@ namespace SearchAlgoritm
 
         public void input()
         {
+            Console.Clear();
             while (true)
             {
-                Console.Write("Enter the number of elements in the array");
+                Console.Write("Enter the number of elements in the array  ");
                 string s = Console.ReadLine();
                 n = Int32.Parse(s);
                 if ((n > 0) && (n <= 20))
@@ -33,11 +34,11 @@ namespace SearchAlgoritm
             //Accept array elements
             Console.WriteLine("");
             Console.WriteLine("---------------------");
-            Console.WriteLine(" Enter array elements");
+            Console.WriteLine(" Enter array elements  ");
             Console.WriteLine("---------------------");
             for (i = 0; i < n; i++)
             {
-                Console.WriteLine("<" + (i + 1) + ">");
+                Console.Write("<" + (i + 1) + ">");
                 string s1 = Console.ReadLine();
                 arr[i] = Int32.Parse(s1);
 
@@ -45,6 +46,7 @@ namespace SearchAlgoritm
         }
         public void BinarySearch()
         {
+
             char ch;
             do
             {
@@ -73,10 +75,13 @@ namespace SearchAlgoritm
                 }
                 if (item == arr[mid])
                 {
-                    Console.WriteLine("\n" + item.ToString() + "found at position " + (mid + 1).ToString());
+                    Console.WriteLine("\n" + item.ToString() + "  found at position   " + (mid + 1).ToString());
                 }
                 else
+                {
                     Console.WriteLine("\n" + item.ToString() + "Not found in the array\n");
+                }
+                    
                 Console.WriteLine("\n Number of comparisions  : " + ctr);
 
                 Console.Write("\nContinue search (y|n) ");
@@ -88,6 +93,7 @@ namespace SearchAlgoritm
         }
         public void linersearch()
         {
+
             char ch;
             //Search for number of combarison
             int ctr;
@@ -98,20 +104,18 @@ namespace SearchAlgoritm
                 int item = Convert.ToInt32(Console.ReadLine());
 
                 ctr = 0;
-                for (int i = 0; i < n; i++)
+                for (i = 0; i < n; i++)
                 {
                     ctr++;
                     if (arr[i] == item)
                     {
-                        Console.WriteLine("\n " + item.ToString() + "found at positon" + (i + 1).ToString());
+                        Console.WriteLine("\n " + item.ToString() + " found at positon  " + (i + 1).ToString());
                         break;
                     }
                 }
                 if (i == n)
-                {
-                    Console.WriteLine("\n " + item.ToString() + "Not Found in the array");
-                }
-                Console.WriteLine("\n Number of comparison" + ctr);
+                    Console.WriteLine("\n " + item.ToString() + " Not Found in the array");
+                Console.WriteLine("\n Number of comparison  :" + ctr);
                 Console.Write("\nContinue search (y|n) ");
                 ch = char.Parse(Console.ReadLine());
 
@@ -119,6 +123,54 @@ namespace SearchAlgoritm
         }
         static void Main(string[] args)
         {
+           Program se = new Program();
+            int choice;
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Welcome to array search assistant");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("  choose the searching method    ");
+            Console.WriteLine("1. Linear search");
+            Console.WriteLine("2. Binary search");
+            Console.WriteLine("3. Exit");
+            Console.WriteLine("Enter your choice (1,2,3)  :  ");
+
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("");
+                    Console.WriteLine("===================");
+                    Console.WriteLine("   Linear search   ");
+                    Console.WriteLine("===================");
+                    se.input();
+                    se.linersearch();
+                    break;
+                 case 2:
+                    Console.WriteLine("");
+                    Console.WriteLine("===================");
+                    Console.WriteLine("   Binary search   ");
+                    Console.WriteLine("===================");
+                    se.input();
+                    se.BinarySearch();
+                    break;
+
+                case 3:
+                    Console.WriteLine("");
+                    Console.WriteLine("===================");
+                    Console.WriteLine("     Thank you     ");
+                    Console.WriteLine("===================");
+                    break;
+
+                default:
+                    Console.WriteLine("Error ");
+                    break;
+            }
+
+
+
+
+
         }
     }
 }
